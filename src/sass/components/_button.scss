@@ -1,0 +1,76 @@
+.btn {
+  position: relative;
+  z-index: 5;
+  display: inline-block;
+  padding: 1.5rem 4rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0;
+  border-radius: 3rem;
+  outline: none;
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 3rem;
+    transition: all 0.4s ease-out;
+    content: "";
+  }
+  &--white {
+    color: $color-gray-dark;
+    background-color: $color-white;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  &--primary {
+    color: $color-white;
+    background-color: $color-primary;
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+  &--animated {
+    animation: toTop 0.5s linear 1s backwards;
+  }
+  &:hover,
+  &:focus {
+    box-shadow: 0 1rem 1rem rgba($color-black, 0.2);
+    transform: translateY(-3px);
+    &::after {
+      transform: scale(1.6, 1.4);
+      opacity: 0;
+    }
+  }
+  &:active {
+    box-shadow: 0 0.5rem 0.5rem rgba($color-black, 0.2);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-text {
+  display: inline-block;
+  padding: 0.4rem;
+  color: $color-primary;
+  font-size: 1.6rem;
+  text-decoration: none;
+  border-bottom: 1px solid $color-primary;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.2s;
+  transition-timing-function: linear;
+  &:hover {
+    color: $color-white;
+    background-color: $color-primary;
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
